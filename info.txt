@@ -1,0 +1,5 @@
+psd-layout author:
+https://dribbble.com/bearduo
+
+font:
+proxima nova

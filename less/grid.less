@@ -1,0 +1,328 @@
+// Inline-block grid system
+// based on Griddle - https://github.com/necolas/griddle
+
+
+@pad-in-px: 30; // 30px;
+@width-in-px: 1170; // 1170px;
+
+@pad: unit( @pad-in-px / @base-font-size, em );
+
+
+// screen sizes
+@tablet: 480px;
+@laptop: 768px;
+@desktop: 940px;
+
+.container {
+    max-width: unit( (@width-in-px - 2*(@pad-in-px))/@base-font-size, em ); // 1170px - 2*30
+    min-width: unit( (400 - 2*(@pad-in-px))/@base-font-size, em);
+    margin: 0 auto;
+    padding: 0 @pad;
+}
+
+.grid {
+    display: block;
+
+    margin-left: -@pad;
+    margin-right: -@pad;
+
+    text-align: left;
+
+    letter-spacing: -.31em;
+    text-rendering: optimizespeed;
+
+    &--pad {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &--align_left {
+        text-align: left;
+    }
+
+    &--align_right {
+        text-align: right;
+    }
+
+    &--align_center {
+        text-align: center;
+    }
+
+    &--align_middle {
+       .grid__cell {
+            vertical-align: middle;
+        }
+    }
+
+    &--align_inherit {
+        .grid__cell {
+            text-align: inherit;
+        }
+    }
+
+    &--inverse {
+        direction: rtl;
+
+        .grid__cell {
+            direction: ltr;
+        }
+    }
+}
+
+//
+// Opera hack
+//
+.opera:-o-prefocus,
+.grid {
+    word-spacing: -.43em;
+}
+
+//
+// Child `grid` object adjustments
+// Used for more complex fixed-fluid hybrid grids.
+//
+//.grid > .grid {
+//    overflow: hidden;
+//    margin-right: 0;
+//    margin-left: 0;
+//}
+
+
+.grid__cell {
+    display: inline-block;
+    .box-sizing(border-box);
+    width: 100%;
+    padding: 0 @pad;
+    vertical-align: top;
+    text-align: left;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-rendering: auto;
+
+    &--w_1-2 {
+        width: 50%;
+    }
+
+    &--w_1-3 {
+        width: 33.3333%;
+    }
+
+    &--w_2-3 {
+        width: 66.6667%;
+    }
+
+    &--w_1-4 {
+        width: 25%;
+    }
+
+    &--w_3-4 {
+        width: 75%;
+    }
+
+    &--align_center {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &--align_left {
+        display: block;
+        margin-right: auto;
+    }
+
+    &--align_right {
+        display: block;
+        margin-left: auto;
+    }
+}
+
+
+@media only screen and (min-width: @tablet) {
+    .grid--tablet {
+        &--pad {
+           margin-left: 0;
+            margin-right: 0;
+        }
+
+        &--align_left {
+            text-align: left;
+        }
+
+        &--align_right {
+            text-align: right;
+        }
+
+        &--align_center {
+            text-align: center;
+        }
+
+        &--align_middle {
+           .grid__cell {
+                vertical-align: middle;
+            }
+        }
+
+        &--align_inherit {
+            .grid__cell {
+                text-align: inherit;
+            }
+        }
+
+        &--inverse {
+            direction: rtl;
+
+            .grid__cell {
+                direction: ltr;
+            }
+        }
+    }
+
+    .grid__cell--tablet {
+        &--w_1-2 {
+            width: 50%;
+        }
+
+        &--w_1-3 {
+            width: 33.3333%;
+        }
+
+        &--w_2-3 {
+            width: 66.6667%;
+        }
+
+        &--w_1-4 {
+            width: 25%;
+        }
+
+        &--w_3-4 {
+            width: 75%;
+        }
+    }
+}
+
+
+@media only screen and (min-width: @laptop) {
+    .grid--laptop {
+        &--pad {
+           margin-left: 0;
+            margin-right: 0;
+        }
+
+        &--align_left {
+            text-align: left;
+        }
+
+        &--align_right {
+            text-align: right;
+        }
+
+        &--align_center {
+            text-align: center;
+        }
+
+        &--align_middle {
+           .grid__cell {
+                vertical-align: middle;
+            }
+        }
+
+        &--align_inherit {
+            .grid__cell {
+                text-align: inherit;
+            }
+        }
+
+        &--inverse {
+            direction: rtl;
+
+            .grid__cell {
+                direction: ltr;
+            }
+        }
+    }
+
+    .grid__cell--laptop {
+        &--w_1-2 {
+            width: 50%;
+        }
+
+        &--w_1-3 {
+            width: 33.3333%;
+        }
+
+        &--w_2-3 {
+            width: 66.6667%;
+        }
+
+        &--w_1-4 {
+            width: 25%;
+        }
+
+        &--w_3-4 {
+            width: 75%;
+        }
+    }
+}
+
+
+@media only screen and (min-width: @desktop) {
+    .grid--desktop {
+        &--pad {
+           margin-left: 0;
+            margin-right: 0;
+        }
+
+        &--align_left {
+            text-align: left;
+        }
+
+        &--align_right {
+            text-align: right;
+        }
+
+        &--align_center {
+            text-align: center;
+        }
+
+        &--align_middle {
+           .grid__cell {
+                vertical-align: middle;
+            }
+        }
+
+        &--align_inherit {
+            .grid__cell {
+                text-align: inherit;
+            }
+        }
+
+        &--inverse {
+            direction: rtl;
+
+            .grid__cell {
+                direction: ltr;
+            }
+        }
+    }
+
+    .grid__cell--desktop {
+        &--w_1-2 {
+            width: 50%;
+        }
+
+        &--w_1-3 {
+            width: 33.3333%;
+        }
+
+        &--w_2-3 {
+            width: 66.6667%;
+        }
+
+        &--w_1-4 {
+            width: 25%;
+        }
+
+        &--w_3-4 {
+            width: 75%;
+        }
+    }
+}
